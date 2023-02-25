@@ -30,7 +30,7 @@ export async function sendNews() {
       newsItem.date.getTime() >
       new Date().getTime() - 5 * 60 * 1000
     ) {
-      const ch = client.channels.cache.get("578855372727517185");
+      const ch = client.channels.cache.get(process.env.DISCORD_CHANNEL);
       (ch as Discord.TextChannel).send(newsItem.url);
       console.log("sending news", newsItem.url, newsItem.date);
     }
